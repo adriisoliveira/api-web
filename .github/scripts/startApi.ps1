@@ -7,7 +7,8 @@ $ErrorActionPreference = "Stop"
 
 #start dotnet application
 $dotnet = Start-Job -ScriptBlock {
-    Get-ChildItem $using:BasePath\publish\*.exe | ForEach { & $_.FullName }
+   cd $using:BasePathsrc\Supermercado.API\
+   dotnet run
 }
 
 Start-Sleep -Seconds 10
