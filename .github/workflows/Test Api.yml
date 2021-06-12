@@ -13,7 +13,7 @@ jobs:
     - name: Set Up .NetCore
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '2.1.200'
+        dotnet-version: '2.2.100'
         
     - name: Dotnet Restore
       run: |
