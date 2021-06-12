@@ -7,7 +7,7 @@ $ErrorActionPreference = "Stop"
 
 #start dotnet application
 $dotnet = Start-Job -ScriptBlock {
-   cd $using:BasePathsrc\Supermercado.API\
+   cd $using:BasePath\src\Supermercado.API\
    dotnet run
 }
 
