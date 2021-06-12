@@ -5,17 +5,9 @@ param (
 
 $ErrorActionPreference = "Stop"
 
-& npm install -g webdriver-manager
-
-Start-Sleep -Seconds 10
-
-& webdriver-manager update
-
-Start-Sleep -Seconds 10
-
 #start dotnet application
 $dotnet = Start-Job -ScriptBlock {
-Get-ChildItem $using:BasePath\publish\*.exe | ForEach { & $_.FullName }     
+    Get-ChildItem $using:BasePath\publish\*.exe | ForEach { & $_.FullName }
 }
 
 Start-Sleep -Seconds 10
@@ -43,6 +35,6 @@ Start-Sleep -Seconds 15
 Receive-Job $actor
 
 New-Item "$BasePath\test-results" -ItemType Directory
-& opentest session create --template "Go to Test" --wait --out $BasePath\test-results\junit.xml
+& opentest session create --template "Call API Template" --wait --out $BasePath\test-results\junit.xml
 
 exit 0
