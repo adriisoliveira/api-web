@@ -16,7 +16,9 @@ jobs:
         dotnet-version: '2.2.200'
         
     - name: Dotnet Restore
-      run: dotnet restore
+      run: |
+        cd src/Supermercado.API/
+        dotnet restore
         
     - name: Build with dotnet
       run: dotnet publish -o .\publish    
